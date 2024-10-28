@@ -1,0 +1,23 @@
+:root[color-scheme='dark'] {
+  --color: #f6faff;
+  --bgr: #0a0d10;
+  --tab: #17191c;
+  --gray: #b1b1b1;
+  --light: #f6faff;
+  --blue: #328ef7;
+  --red: #fd5d5d;
+  --green: #159c4b;
+  --yellow: #fdda5d;
+}
+
+:root[color-scheme='light'] {
+  --color: #0a0d10;
+  --bgr: #f6faff;
+  --tab: #f6faff;
+  --gray: #737b84;
+  --light: #d2e5ff;
+  --blue: #328ef7;
+  --red: #fd5d5d;
+  --green: #159c4b;
+  --yellow: #fdda5d;
+}
