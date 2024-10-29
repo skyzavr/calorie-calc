@@ -1,0 +1,78 @@
+/* stylelint-disable no-descending-specificity */
+
+.button {
+  max-width: 276px;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 16px;
+  font: var(--body-med-regular);
+  font-weight: 400;
+}
+
+.filled {
+  background-color: #17191c;
+  color: #f6faff;
+}
+
+.filled:hover {
+  color: var(--blue);
+}
+
+.filled:disabled {
+  background-color: var(--light);
+  color: #17191c;
+}
+
+.outline {
+  background-color: transparent;
+  border: 1px solid var(--color);
+  color: var(--color);
+}
+
+.outline:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.outline:disabled {
+  color: var(--gray);
+  border-color: var(--gray);
+}
+
+.none {
+  background-color: transparent;
+  border: 0 solid transparent;
+  color: var(--color);
+}
+
+.none:hover {
+  color: var(--blue);
+}
+
+.none:disabled {
+  color: var(--gray);
+}
+
+/* transitions */
+
+.none,
+.none:hover,
+.filled,
+.filled:hover {
+  transition: color 0.3s ease-in-out;
+}
+
+.outline,
+.outline:hover {
+  transition: all 0.3s ease-in-out;
+}
+
+/* size */
+
+.default {
+  font: var(--body);
+}
+
+.big {
+  font: var(--h4);
+}
