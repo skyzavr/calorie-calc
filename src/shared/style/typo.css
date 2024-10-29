@@ -1,20 +1,11 @@
 :root {
-  --h1-bold: bold 26px 'Ubuntu', sans-serif;
-  --h1-regular: 26px 'Ubuntu', sans-serif;
-  --h2-bold: bold 24px 'Ubuntu', sans-serif;
-  --h2-regular: 24px 'Ubuntu', sans-serif;
-  --h3-bold: bold 22px 'Ubuntu', sans-serif;
-  --h4-bold: bold 20px 'Ubuntu', sans-serif;
-  --h4-medium: 500 20px 'Ubuntu', sans-serif;
-  --h4-regular: 20px 'Ubuntu', sans-serif;
-  --body-bold: bold 18px 'Ubuntu', sans-serif;
-  --body-medium: 500 18px 'Ubuntu', sans-serif;
-  --body-regular: 18px 'Ubuntu', sans-serif;
-  --body-med-bold: bold 16px 'Ubuntu', sans-serif;
-  --body-med-regular: 16px 'Ubuntu', sans-serif;
+  --h1: 26px 'Ubuntu', sans-serif;
+  --h2: 24px 'Ubuntu', sans-serif;
+  --h3: 22px 'Ubuntu', sans-serif;
+  --h4: 20px 'Ubuntu', sans-serif;
+  --body: 18px 'Ubuntu', sans-serif;
+  --body-med: 16px 'Ubuntu', sans-serif;
   --body-small: 14px 'Ubuntu', sans-serif;
-  --text-bold: bold 12px 'Ubuntu', sans-serif;
-  --text-medium: 500 12px 'Ubuntu', sans-serif;
-  --text-regular: 12px 'Ubuntu', sans-serif;
+  --text: 12px 'Ubuntu', sans-serif;
   --text-tiny: 10px 'Ubuntu', sans-serif;
 }
