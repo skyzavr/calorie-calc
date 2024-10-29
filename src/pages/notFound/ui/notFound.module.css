@@ -1,0 +1,30 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.errorCode {
+  margin-bottom: 50px;
+  color: var(--color);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+}
+
+.descWrapper {
+  margin: 30px 0;
+}
+
+@media (min-width: 320px) {
+  .errorCode {
+    font-size: 128px;
+  }
+}
+
+@media (min-width: 560px) {
+  .errorCode {
+    font-size: 256px;
+  }
+}
