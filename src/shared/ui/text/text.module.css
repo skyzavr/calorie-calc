@@ -1,0 +1,63 @@
+/* text variants */
+
+.h1 {
+  font: var(--h1);
+}
+
+.h2 {
+  font: var(--h2);
+}
+
+.h3 {
+  font: var(--h3);
+}
+
+.h4 {
+  font: var(--h4);
+}
+
+.body {
+  font: var(--body);
+}
+
+.bodyMed {
+  font: var(--body-med);
+}
+
+.bodySmall {
+  font: var(--body-small);
+}
+
+.text {
+  font: var(--text);
+}
+
+.textTiny {
+  font: var(--text-tiny);
+}
+
+/* text weight */
+
+.bold {
+  font-weight: bold;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.typo {
+  color: var(--color);
+}
+
+.lineHeight {
+  line-height: 133%;
+}
