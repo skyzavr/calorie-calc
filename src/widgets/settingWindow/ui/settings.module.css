@@ -1,0 +1,45 @@
+.modalWrapper {
+  background-color: var(--bgr);
+  max-width: 700px;
+  max-height: 600px;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  margin: 20px;
+  border: 1px solid var(--color);
+  position: relative;
+}
+
+.modalWrapper > button {
+  position: absolute;
+  right: 15px;
+}
+
+.modalWrapper > h1 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.modalWrapper > p {
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+}
+
+@media (min-width: 320px) {
+  .toggleWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 560px) {
+  .toggleWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
