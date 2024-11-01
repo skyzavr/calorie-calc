@@ -9,10 +9,11 @@ type textProps = {
   type: textType;
   weight?: textWeight;
   option?: textOption;
+  style?: { [key: string]: string };
 };
 
 export const Text = (props: textProps) => {
-  const { children, type, weight = 'regular', option = 'p' } = props;
+  const { children, type, weight = 'regular', option = 'p', style } = props;
   const clName = classNames(
     css[type],
     css[weight],
@@ -20,5 +21,5 @@ export const Text = (props: textProps) => {
     css.typo
   );
 
-  return createElement(option, { className: clName }, children);
+  return createElement(option, { className: clName, style: style }, children);
 };
