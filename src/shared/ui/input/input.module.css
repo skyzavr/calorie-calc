@@ -1,0 +1,39 @@
+.wrapper {
+  color: var(--color);
+  margin-top: 36px;
+}
+
+.label {
+  font-weight: 600;
+  font-size: var(--body);
+}
+
+.error {
+  color: var(--red);
+}
+
+.inputWrapper {
+  margin-top: 5px;
+}
+
+.input {
+  color: var(--color);
+  background-color: transparent;
+  border: 2px solid var(--color);
+  border-radius: 10px;
+  width: 80px;
+  height: 40px;
+  padding-left: 10px;
+  font-size: var(--body);
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  display: none;
+}
