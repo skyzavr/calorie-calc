@@ -20,7 +20,7 @@ export const icons: iconsDesc = {
       />
     </svg>
   ),
-  checkSign: (
+  deleteSign: (
     <svg
       width="14"
       height="14"
@@ -34,7 +34,7 @@ export const icons: iconsDesc = {
       />
     </svg>
   ),
-  deleteSign: (
+  checkSign: (
     <svg
       width="8"
       height="7"
