@@ -1,0 +1,18 @@
+.wrapper {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media (min-width: 320px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 560px) {
+  .wrapper {
+    flex-direction: row;
+  }
+}
