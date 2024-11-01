@@ -1,0 +1,32 @@
+.summary {
+  color: var(--color);
+  background-color: var(--tab);
+  box-shadow: 0 2px 7px rgb(0 0 0 / 25%);
+}
+
+.summary::before {
+  position: relative;
+}
+
+.summary > div {
+  display: flex;
+  align-items: center;
+}
+
+.active {
+  color: var(--bgr);
+  background-color: var(--color);
+}
+
+.active p {
+  color: var(--bgr);
+  background-color: var(--color);
+}
+
+.active svg {
+  fill: var(--bgr);
+}
+
+.summary p:first-child {
+  margin-right: 10px;
+}
