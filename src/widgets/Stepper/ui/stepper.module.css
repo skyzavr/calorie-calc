@@ -1,0 +1,27 @@
+.label span {
+  color: var(--color) !important;
+}
+
+.active span {
+  color: var(--blue) !important;
+}
+
+.active span svg {
+  color: var(--blue) !important;
+}
+
+.label span svg {
+  color: var(--color) !important;
+}
+
+.label span svg text {
+  fill: var(--bgr) !important;
+}
+
+.active span svg text {
+  fill: var(--color) !important;
+}
+
+.active span svg circle {
+  fill: var(--blue) !important;
+}
