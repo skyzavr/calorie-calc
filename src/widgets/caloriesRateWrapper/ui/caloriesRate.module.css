@@ -1,0 +1,11 @@
+.wrapper {
+  margin-top: 30px;
+}
+
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  place-content: stretch space-between;
+}
