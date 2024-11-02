@@ -5,4 +5,5 @@
 
 body {
   word-wrap: break-word;
+  background-color: var(--bgr);
 }
