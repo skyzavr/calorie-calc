@@ -1,0 +1,21 @@
+.bmi {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.wrapper {
+  border-radius: 4px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--color);
+  color: var(--bgr);
+  padding: 10px 20px;
+}
+
+.wrapper > p {
+  color: var(--bgr);
+  margin-left: 10px;
+}
