@@ -1,0 +1,129 @@
+{
+  "home": {
+    "header": "CALORIE RATE CALCULATOR",
+    "paragraphs": [
+      "We calculate the calorie rate according to the MIFFLIN-SAN GEOR formula",
+      "The formula was developed in 1990 and is considered by far the most accurate for calculating daily energy needs"
+    ],
+    "phases": [
+      {
+        "title": "Phase 1",
+        "desc": "We calculate your basic metabolism according your data."
+      },
+      {
+        "title": "Phase 2",
+        "desc": "Then we calculate your calories rate and MBI according your physical activity"
+      }
+    ],
+    "start": "Start"
+  },
+  "notFound": {
+    "header": "Ooops! Page Not Found",
+    "description": [
+      "This page doesn’t exist or was removed",
+      "We suggest you back to home"
+    ],
+    "home": "Home"
+  },
+  "calculator": {
+    "steps": ["Your gender", "Your parameters", "Your activity"],
+    "buttons": ["Back", "Calculate", "Next"],
+    "panels": [
+      "For the sedentary",
+      "Low activity",
+      "Moderate activity",
+      "Moderate activity",
+      "High activity"
+    ],
+    "stepOne": {
+      "title": "I am {{gender}}",
+      "params": ["female", "male"]
+    },
+    "stepTwo": {
+      "inputs": [
+        {
+          "name": "age",
+          "title": ["I am", "years old"],
+          "min": 14,
+          "init": "{{age}}",
+          "key": "age"
+        },
+        {
+          "name": "height",
+          "title": ["My height is ", "{{heightMeasure}}"],
+          "min": "{{minHeight}}",
+          "init": "{{height}}",
+          "key": "height"
+        },
+        {
+          "name": "weight",
+          "title": ["My weight is ", "{{weightMeasure}}"],
+          "min": "{{minWeight}}",
+          "init": "{{weight}}",
+          "key": "weight"
+        }
+      ],
+      "params": {
+        "weight": { "imperial": "pounds", "metric": "kg" },
+        "height": { "imperial": "inches", "metric": "cm" }
+      },
+      "inputValidation": {
+        "errorMessage": "value must be greater than {{min}}"
+      }
+    }
+  },
+  "settings": {
+    "header": "Settings",
+    "theme": {
+      "header": "Theme",
+      "options": ["light", "dark"]
+    },
+    "lang": {
+      "header": "Language"
+    },
+    "system": {
+      "header": "System",
+      "options": ["imperial", "metric"]
+    },
+    "autosave": "We have auto save here"
+  },
+  "results": {
+    "header": "Your result",
+    "bmi": "BMI",
+    "desc": {
+      "insuf": "Insufficient body weight",
+      "normal": "Normal body weight",
+      "overWeight": "Overweight",
+      "obesityOne": "Obesity of the 1st degree",
+      "obesityTwo": "Obesity of the 2st degree",
+      "obesityThree": "Obesity of the 3st degree"
+    },
+
+    "home": "Home",
+    "rateWrapper": {
+      "header": "Calories rate",
+      "list": [
+        {
+          "title": "Your basic metabolism",
+          "text": "These are calories that are burned when you are at rest, and energy is spent on ensuring the processes of respiration, blood circulation, maintaining body temperature, etc."
+        },
+        {
+          "title": "Your calorie rate",
+          "text": "Your calorie rate to maintain weight with current physical activity (you don't lose weight or gain weight)"
+        }
+      ]
+    },
+    "rate": {
+      "header": "Your rate",
+      "data": [
+        "Slow weight loss",
+        "Optimal deficit level",
+        "Optimal deficit level",
+        "Very fast weight loss"
+      ]
+    },
+    "rateCard": {
+      "data": ["Percent", "Kcal", "Details"]
+    }
+  }
+}
