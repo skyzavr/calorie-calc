@@ -1,10 +1,12 @@
-import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { Toolbar } from '@mui/material';
 
-import { measure } from '@app/store/selectors';
+import { measure, userData } from '@app/store/selectors';
 
 import { NotFound } from '@pages/notFound';
 import { BMI } from '@widgets/Bmi';
+import { clearData } from '@widgets/formSteps/model/slice';
 import { RateWrapper } from '@widgets/caloriesRateWrapper';
 import { CaloriesRate } from '@entities/calorieRateWrapper';
 import { inchToCm, poundToKilo } from '@shared/lib/converter';
@@ -12,35 +14,26 @@ import { Button, Text } from '@shared/ui';
 import { getMetabolism, getRate } from '../lib/metabolismCalc';
 
 import css from './result.module.css';
-import { useNavigate } from 'react-router-dom';
 
-type data = {
-  gender: string;
-  weight: number;
-  height: number;
-  activity: string;
-  age: number;
-};
 export const Results = () => {
-  const isMetricSystem = useSelector(measure) === 'metric';
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const goHome = () => navigate('/');
-  const data = localStorage.getItem('calcData');
-  if (!data) return <NotFound />;
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const lsData: data = JSON.parse(data);
-  const { age, weight, gender, height, activity } = lsData;
-  const genderParam = gender === 'female' ? -161 : 5;
-  const correctWeight = isMetricSystem ? weight : inchToCm(weight);
-  const correctHeight = isMetricSystem ? height : poundToKilo(height);
-  const metabolism = getMetabolism(
-    correctWeight,
-    correctHeight,
-    age,
-    genderParam
-  );
+  const currentData = useSelector(userData);
+  const isMetricSystem = useSelector(measure) === 'metric';
+  const isDataEmpty = Object.values(currentData).some((el) => el === '');
+  if (isDataEmpty) return <NotFound />;
+
+  const { age, weight, gender, height, activity } = currentData;
+  const correctWeight = isMetricSystem ? Number(weight) : inchToCm(weight);
+  const correctHeight = isMetricSystem ? Number(height) : poundToKilo(height);
+  const metabolism = getMetabolism(correctWeight, correctHeight, age, gender);
   const rateBasedOnActivity = getRate(metabolism, activity);
+
+  const goHome = () => {
+    dispatch(clearData());
+    navigate('/');
+  };
 
   return (
     <Toolbar className={css.wrapper}>
