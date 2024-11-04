@@ -20,7 +20,7 @@ export const Accordion = (props: accordionProps) => {
   const [expanded, setExpanded] = useState<initValue | false>(activity);
   const [active, setActive] = useState(activity);
 
-  const handleChange: handleChange = (panel) => (event, isExpanded) => {
+  const handleChange: handleChange = (panel) => (_event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
   const onPickActivity = (value: string) => {

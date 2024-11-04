@@ -13,12 +13,14 @@ type toggleBGProps = {
   params: optionsParams[];
 };
 
+type handleChange = (_event: React.MouseEvent, newValue: string) => void;
+
 export const ToggleButtonGroupComponent = (props: toggleBGProps) => {
   const { value, onSetValue, title, params } = props;
 
   const [currentValue, setCurrentValue] = useState(value);
 
-  const onChangeHandler = (event: React.MouseEvent, newValue: string) => {
+  const onChangeHandler: handleChange = (_event, newValue) => {
     if (newValue === currentValue || newValue === null) return;
     setCurrentValue(newValue);
     onSetValue(newValue);
