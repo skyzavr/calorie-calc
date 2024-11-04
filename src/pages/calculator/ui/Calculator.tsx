@@ -1,26 +1,28 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { Toolbar } from '@mui/material';
 
+import { userData } from '@app/store/selectors';
+import { userData as userDataType } from '@type/functions';
 import { ControlButtons } from '@widgets/formControlButtons';
 import { StepOne, StepTwo, StepThree } from '@widgets/formSteps';
 import { StepperWrapper } from '@widgets/Stepper';
-import { defaultValues, steps } from '../model/const';
+import { setUserData } from '@widgets/formSteps/model/slice';
 import { useForm } from '@shared/lib/useForm';
+import { steps } from '../model/const';
 
 import css from './calculator.module.css';
 
-type formValues = { [key: string]: string | number };
-
 export const Calculator = () => {
-  const [formData, setFormData] = useState<formValues>({ ...defaultValues });
+  const dispatch = useDispatch();
+  const currentData = useSelector(userData);
   const [isValid, setIsValid] = useState(false);
+  const { gender, age, height, weight, activity } = currentData;
 
-  const onUpdateHandler = (data: { [key: string]: string | number }) => {
-    setFormData({ ...formData, ...data });
-    localStorage.setItem('calcData', JSON.stringify({ ...formData, ...data }));
+  const onUpdateHandler = (data: userDataType) => {
+    dispatch(setUserData(data));
     setIsValid(true);
   };
-  const { gender, age, height, weight, activity } = formData;
 
   const formSteps = [
     <StepOne initValue={gender} onUpdateHandler={onUpdateHandler} />,
