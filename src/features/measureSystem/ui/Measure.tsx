@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { measure } from '@app/store/selectors';
 import { ToggleGroup } from '@entities/toggleButtonGroup';
-import { changeMeasure } from '../model/slice';
-import { Measure } from '../model/types';
 import { useTranslate } from '@shared/lib/useTranslate';
 import { getParams } from '@shared/lib/helpers';
+import { changeMeasure } from '../model/slice';
+import { Measure } from '../model/types';
 
 export const MeasureSystem = () => {
   const { t } = useTranslate('settings.system');
