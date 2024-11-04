@@ -2,29 +2,34 @@ import { useNavigate } from 'react-router-dom';
 import { Toolbar } from '@mui/material';
 
 import { Button, Text, TextBlock } from '@shared/ui';
-
-import { phases } from '../model/phases';
+import { useTranslate } from '@shared/lib/useTranslate';
 import css from './home.module.css';
+
+type phaseType = {
+  title: string;
+  desc: string;
+}[];
 
 export const Home = () => {
   const navigate = useNavigate();
+  const { t } = useTranslate('home');
 
   const navigateToCalculator = () => navigate('/calculator');
+
+  const paragraphs = t('paragraphs', { returnObjects: true }) as string[];
+  const phases = t('phases', { returnObjects: true }) as phaseType;
 
   return (
     <Toolbar className={css.wrapper}>
       <Text type="h1" weight="bold" option="h1">
-        CALORIE RATE CALCULATOR
+        {t('header')}
       </Text>
       <div className={css.descWrapper}>
-        <Text type="bodyMed">
-          We calculate the calorie rate according to the MIFFLIN-SAN GEOR
-          formula
-        </Text>
-        <Text type="bodyMed">
-          The formula was developed in 1990 and is considered by far the most
-          accurate for calculating daily energy needs
-        </Text>
+        {paragraphs.map((el) => (
+          <Text type="bodyMed" key={el}>
+            {el}
+          </Text>
+        ))}
       </div>
       <div className={css.phasesWrapper}>
         {phases.map((el) => (
@@ -33,7 +38,7 @@ export const Home = () => {
       </div>
 
       <Button onHandler={navigateToCalculator} size="big">
-        Start
+        {t('start')}
       </Button>
     </Toolbar>
   );

@@ -5,12 +5,13 @@ import { Accordion } from '@entities/Accordion';
 
 type stepProps = {
   initValue: initValue;
+  panelsData: string[];
   onUpdateHandler: onHandler;
   setIsValid: (value: boolean) => void;
 };
 
 export const StepThree = (props: stepProps) => {
-  const { initValue, onUpdateHandler, setIsValid } = props;
+  const { initValue, panelsData, onUpdateHandler, setIsValid } = props;
   const [activity, setActivity] = useState(initValue);
 
   const setValue = (activity: string) => {
@@ -19,22 +20,14 @@ export const StepThree = (props: stepProps) => {
     activity ? setIsValid(true) : setIsValid(false);
   };
 
-  const panels = [
-    {
-      value: '1.200',
-      title: 'For the sedentary.',
-    },
-    {
-      value: '1.375',
-      title: 'Low activity. ',
-    },
-    {
-      value: '1.550',
-      title: 'Moderate activity. ',
-    },
-    { value: '1.725', title: 'Moderate activity. ' },
-    { value: '1.900', title: 'High activity. ' },
-  ];
+  const getPanelsData = (panelsData: string[]) => {
+    const values = ['1.200', '1.375', '1.550', '1,725', '1.900'];
+    return values.map((el, ind) => {
+      return { value: el, title: panelsData[ind] };
+    });
+  };
+
+  const panels = getPanelsData(panelsData);
 
   useEffect(() => {
     if (activity) onUpdateHandler({ activity });

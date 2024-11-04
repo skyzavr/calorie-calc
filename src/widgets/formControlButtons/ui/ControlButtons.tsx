@@ -1,3 +1,4 @@
+import { TFunction } from 'i18next';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@shared/ui';
 
@@ -9,12 +10,19 @@ type controlsProps = {
   onPrev: () => void;
   onNext: () => void;
   isValid: boolean;
+  t: TFunction;
 };
 
 export const ControlButtons = (props: controlsProps) => {
   const navigate = useNavigate();
-  const { currentPage, pages, onPrev, onNext, isValid } = props;
-  const lastPage = currentPage === pages - 1 ? 'Calculate' : 'Next';
+
+  const { currentPage, pages, onPrev, onNext, isValid, t } = props;
+
+  const [back, next, calculate] = t('buttons', {
+    returnObjects: true,
+  }) as string[];
+
+  const lastPage = currentPage === pages - 1 ? next : calculate;
 
   const onNextHandler = () => {
     if (currentPage === pages - 1) navigate('/results');
@@ -23,7 +31,7 @@ export const ControlButtons = (props: controlsProps) => {
 
   return (
     <div className={css.wrapper}>
-      {currentPage > 0 && <Button onHandler={onPrev}>Back</Button>}
+      {currentPage > 0 && <Button onHandler={onPrev}>{back}</Button>}
       <Button onHandler={onNextHandler} btnType="outline" isDisabled={isValid}>
         {lastPage}
       </Button>

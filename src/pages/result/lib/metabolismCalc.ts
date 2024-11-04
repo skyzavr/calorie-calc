@@ -4,6 +4,7 @@ type getMetabType = (
   age: number | string,
   gender: string | number
 ) => number;
+
 type rateType = (metabolism: number, activity: number | string) => number;
 
 export const getMetabolism: getMetabType = (...args) => {

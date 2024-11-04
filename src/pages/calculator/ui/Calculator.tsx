@@ -9,13 +9,18 @@ import { StepOne, StepTwo, StepThree } from '@widgets/formSteps';
 import { StepperWrapper } from '@widgets/Stepper';
 import { setUserData } from '@widgets/formSteps/model/slice';
 import { useForm } from '@shared/lib/useForm';
-import { steps } from '../model/const';
+import { useTranslate } from '@shared/lib/useTranslate';
 
 import css from './calculator.module.css';
 
 export const Calculator = () => {
   const dispatch = useDispatch();
   const currentData = useSelector(userData);
+
+  const { t } = useTranslate('calculator');
+  const steps = t('steps', { returnObjects: true }) as string[];
+  const panels = t('panels', { returnObjects: true }) as string[];
+
   const [isValid, setIsValid] = useState(false);
   const { gender, age, height, weight, activity } = currentData;
 
@@ -33,6 +38,7 @@ export const Calculator = () => {
     />,
     <StepThree
       initValue={activity}
+      panelsData={panels}
       onUpdateHandler={onUpdateHandler}
       setIsValid={setIsValid}
     />,
@@ -53,6 +59,7 @@ export const Calculator = () => {
             onNext={onNext}
             onPrev={onPrev}
             isValid={!isValid}
+            t={t}
           />
         </div>
       </div>

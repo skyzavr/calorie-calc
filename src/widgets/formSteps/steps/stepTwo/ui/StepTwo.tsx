@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
+import { measure } from '@app/store/selectors';
 import { initValue, onHandler } from '@type/functions';
 import { Input } from '@shared/ui';
-import { getInputsParams } from '../model/inputsParams';
+import { useTranslate } from '@shared/lib/useTranslate';
+import { getInputsParams, measureParamsType } from '../model/inputsParams';
 
 type loopValues = { [key: string]: initValue };
 
@@ -12,14 +15,16 @@ type stepProps = {
   setIsValid: (value: boolean) => void;
 };
 export const StepTwo = (props: stepProps) => {
-  const {
-    initValue: { age, height, weight },
-    onUpdateHandler,
-    setIsValid,
-  } = props;
+  const measureSystem = useSelector(measure);
+  const { t } = useTranslate('calculator.stepTwo');
+  const { initValue, onUpdateHandler, setIsValid } = props;
+  const [stepData, setStepData] = useState({ ...initValue });
 
-  const inputs = getInputsParams([age, height, weight]);
-  const [stepData, setStepData] = useState({ age, height, weight });
+  const measureParams = t('params', {
+    returnObjects: true,
+  }) as measureParamsType;
+
+  const inputs = getInputsParams(measureParams, initValue, t, measureSystem);
 
   const isValid = (data: loopValues) => {
     const isValidData = Object.values(data).every((el) => el !== '');
@@ -37,7 +42,7 @@ export const StepTwo = (props: stepProps) => {
   return (
     <div>
       {inputs.map((el) => (
-        <Input {...el} onHandler={onStepHandler} key={el.key} />
+        <Input {...el} onHandler={onStepHandler} t={t} key={el.key} />
       ))}
     </div>
   );
