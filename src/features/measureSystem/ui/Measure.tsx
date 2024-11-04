@@ -5,10 +5,15 @@ import { measure } from '@app/store/selectors';
 import { ToggleGroup } from '@entities/toggleButtonGroup';
 import { changeMeasure } from '../model/slice';
 import { Measure } from '../model/types';
+import { useTranslate } from '@shared/lib/useTranslate';
+import { getParams } from '@shared/lib/helpers';
 
 export const MeasureSystem = () => {
+  const { t } = useTranslate('settings.system');
   const dispatch = useDispatch();
   const currenMeasure = useSelector(measure);
+  const options = ['imperial', 'metric'];
+  const data = t('options', { returnObjects: true }) as string[];
 
   const changeMeasureClb = (value: string) =>
     dispatch(changeMeasure(value as Measure));
@@ -18,11 +23,8 @@ export const MeasureSystem = () => {
   const params = {
     value: currenMeasure,
     onSetValue: changeMeasureHandler,
-    title: 'System',
-    params: [
-      { key: 'imperial', buttonValue: 'Imperial' },
-      { key: 'metric', buttonValue: 'Metric' },
-    ],
+    title: t('header'),
+    params: getParams(options, data),
   };
 
   return <ToggleGroup {...params} />;
