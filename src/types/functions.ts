@@ -5,5 +5,6 @@ export type toggleBGClb = (
 ) => void;
 
 //form update handler
+export type userData = { [key: string]: string | number };
 export type initValue = number | string;
-export type onHandler = (data: { [name: string]: initValue }) => void;
+export type onHandler = (data: userData) => void;
