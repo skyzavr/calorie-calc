@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from 'react';
+import { TFunction } from 'i18next';
 
 import { initValue, onHandler } from '@type/functions';
 import css from './input.module.css';
@@ -9,10 +10,11 @@ type inputProps = {
   title: string[];
   init: initValue;
   onHandler: onHandler;
+  t: TFunction;
 };
 
 export const Input = (props: inputProps) => {
-  const { name, min, title, init = '', onHandler } = props;
+  const { name, min, title, init = '', onHandler, t } = props;
 
   const [value, setValue] = useState<initValue>(init);
   const [error, setError] = useState({ error: '', isError: false });
@@ -22,7 +24,7 @@ export const Input = (props: inputProps) => {
   const errorHandler = () => {
     if (value === null) return;
     if (Number(value) < min) {
-      onSetError(true, `value must be greater than ${min}`);
+      onSetError(true, t('inputValidation.errorMessage', { min }));
       onHandler({ [name]: '' });
       return;
     }
