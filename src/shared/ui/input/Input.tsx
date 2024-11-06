@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { TFunction } from 'i18next';
 
 import { initValue, onHandler } from '@type/functions';
@@ -17,6 +17,7 @@ export const Input = (props: inputProps) => {
   const { name, min, title, init = '', onHandler, t } = props;
 
   const [value, setValue] = useState<initValue>(init);
+  const [isFirstRender, setIsFirstRender] = useState(true);
   const [error, setError] = useState({ error: '', isError: false });
   const onSetError = (error: boolean, errorText: string) =>
     setError({ isError: error, error: errorText });
@@ -41,6 +42,14 @@ export const Input = (props: inputProps) => {
     const [startSent, endSent] = title;
     return !value ? `${startSent}...` : `${startSent} ${value} ${endSent}`;
   };
+
+  useEffect(() => {
+    setIsFirstRender(false);
+  }, []);
+
+  useEffect(() => {
+    if (!isFirstRender) errorHandler();
+  }, [min]);
 
   return (
     <div className={css.wrapper}>
